@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from 'react';
- 
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import { useNavigate } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
- 
-import { Table, TableBody, TableCell, TableHead, TableRow, TableContainer, Paper, Typography, Button, Box } from '@mui/material';
 import { db } from '../../firebaseConfig';
+import { Table, TableBody, TableCell, TableHead, TableRow, TableContainer, Paper, Button, Box } from '@mui/material';
 
 
-function StudentList( ) {
+ const StudentList = () => {
  
   const [userData, setUserData] = useState([]);
-   
- 
   useEffect(() => {
     getDataFromDatabase();
   }, []);
@@ -20,7 +16,7 @@ function StudentList( ) {
   const getDataFromDatabase = async () => {
     try {
       let arr = [];
-      const getData = await getDocs(collection(db, "registerUser"));
+      const getData = await getDocs(collection(db,"registerUser"));
       getData.forEach((doc) => {
         console.log(doc.data());
         arr.push({
@@ -44,7 +40,7 @@ function StudentList( ) {
     <div style={{ display: 'flex', justifyContent: 'start',   height: '100vh', marginTop: '100px',marginRight:"200px" }}>
     <div style={{ width: '80%', maxWidth: '1200px' }}>
    
-      {/* Add Button */}
+    
       <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 2 }}>
         <Button
           onClick={() => {
@@ -52,7 +48,7 @@ function StudentList( ) {
           }}
           startIcon={<AddRoundedIcon />}
           sx={{
-            backgroundColor: '#1976D2', // Blue color for button
+            backgroundColor: '#1976D2',  
             color: 'white',
             '&:hover': { backgroundColor: '#1565C0' },
             padding: '10px 20px',
@@ -83,10 +79,10 @@ function StudentList( ) {
                   key={classItem.id}
                   sx={{
                     '&:nth-of-type(even)': {
-                      backgroundColor: '#f9f9f9', // Alternating row colors
+                      backgroundColor: '#f9f9f9',  
                     },
                     '&:hover': {
-                      backgroundColor: '#e0f7fa', // Hover effect for rows
+                      backgroundColor: '#e0f7fa',  
                     },
                   }}
                 >
@@ -106,7 +102,7 @@ function StudentList( ) {
 
       
  
-  );
+  )
 }
 
-export default StudentList;
+export default StudentList

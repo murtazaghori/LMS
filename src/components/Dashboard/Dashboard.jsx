@@ -16,7 +16,7 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 
 import StudentRegistration from './StudentRegistration';
- 
+import StudentList from './StudentList'
 import TeacherRegistration from './TeacherRegistration';
 import TeacherList from './TeacherList';
 import SubjectAdd from './SubjectAdd';
@@ -29,7 +29,6 @@ import FeeStructure from './FeeStructure';
 import FeeVoucher from './FeeVoucher';
 import FeeSubmission from './FeeSubmission';
 import EmailIcon from '@mui/icons-material/Email';
-import StudentList from './Studentlist';
 import Admission from './Admission';
 import ExamSchedule from './ExamSchedule';
 import ExamResult from './ExamResult';
@@ -42,7 +41,7 @@ const drawerWidth = 240;
 const pages = [
   {
     name: 'Students',
-    route: 'dashboard',
+    route: 'Student',
     children: [
       {
         name: 'StudentRegistration',
@@ -280,7 +279,7 @@ export default function Dashboard() {
   
         <Routes>
           <Route path="studentRegistration" element={<StudentRegistration />} />
-          <Route path="studentList" element={<StudentList/>} />
+          <Route path="studentList" element={<StudentList />} />
           <Route path="teacherRegistration" element={<TeacherRegistration />} />
           <Route path="teacherList" element={<TeacherList />} />
           <Route path="subjectAdd" element={<SubjectAdd />} />
